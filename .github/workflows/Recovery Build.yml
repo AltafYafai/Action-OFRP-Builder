@@ -6,11 +6,8 @@ on:
       device_tree_url:
         description: "Select device tree repository"
         required: true
-        type: choice
+        type: string
         default: https://github.com/AltafYafai/device_xiaomi_sky-recovery
-        options:
-          - https://github.com/AltafYafai/device_xiaomi_sky-recovery
-          - https://github.com/AzzyC/ofox_device_xiaomi_peridot
 
       device_tree_branch:
         description: "Select device tree branch"
