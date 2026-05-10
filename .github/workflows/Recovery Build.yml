@@ -15,9 +15,10 @@ on:
       device_tree_branch:
         description: "Select device tree branch"
         required: true
-        default: TWRP
+        default: twrp-experimental
         type: choice
         options:
+          - twrp-experimental
           - TWRP
           - fox_14.1
 
