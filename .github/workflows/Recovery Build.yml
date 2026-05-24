@@ -7,12 +7,12 @@ on:
         description: "Select device tree repository"
         required: true
         type: string
-        default: https://github.com/AltafYafai/device_xiaomi_sky-recovery
+        default: https://github.com/linastorvaldz/recovery_xiaomi_gold
 
       device_tree_branch:
         description: "Select device tree branch"
         required: true
-        default: unified
+        default: HOS3-14.1
         type: string
 
       recovery_tree_branch:
@@ -34,10 +34,10 @@ jobs:
       MANIFEST_BRANCH: ${{ inputs.recovery_tree_branch }}
       DEVICE_TREE_URL: ${{ inputs.device_tree_url }}
       DEVICE_TREE_BRANCH: ${{ inputs.device_tree_branch }}
-      DEVICE_PATH: device/xiaomi/sky
-      DEVICE_NAME: sky
-      MAKEFILE_NAME: twrp_sky-eng
-      BUILD_TARGET: recovery
+      DEVICE_PATH: device/xiaomi/gold
+      DEVICE_NAME: gold
+      MAKEFILE_NAME: twrp_gold-eng
+      BUILD_TARGET: vendorboot
 
     steps:
 
@@ -151,6 +151,8 @@ jobs:
       with:
         files: |
           ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ env.MANIFEST_BRANCH }}/out/target/product/${{ env.DEVICE_NAME }}/recovery.img
+          ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ env.MANIFEST_BRANCH }}/out/target/product/${{ env.DEVICE_NAME }}/vendor_boot.img
+          ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ env.MANIFEST_BRANCH }}/out/target/product/${{ env.DEVICE_NAME }}/boot.img
           ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ env.MANIFEST_BRANCH }}/out/target/product/${{ env.DEVICE_NAME }}/OrangeFox-R*.zip
         name: ${{ env.DEVICE_NAME }}-${{ github.run_id }}
         tag_name: ${{ github.run_id }}
