@@ -84,7 +84,7 @@ jobs:
         sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq git python3 tar aria2 curl ninja-build bc
         git clone https://gitlab.com/OrangeFox/misc/scripts
         cd scripts
-        sed -i 's/sudo systemctl restart/#sudo systemctl restart/g' setup/android_build_env.sh
+        sed -i 's/sudo systemctl restart .*/true/g' setup/android_build_env.sh
         sudo DEBIAN_FRONTEND=noninteractive bash setup/android_build_env.sh
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
